@@ -1,38 +1,137 @@
-* {
-    box-sizing: border-box;
+/* || Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caprasimo&family=Grenze+Gotisch:wght@100..900&family=Indie+Flower&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Knewave&family=Markazi+Text:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oleo+Script:wght@400;700&family=Pacifico&family=Patrick+Hand&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Tillana:wght@400;500;600;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+/* || Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* || Utilities */
+.off-screen {
+  position: absolute;
+  left: -9999px;
+}
+
+.flex {
+  display: flex;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* || Variables */
+:root {
+    /* Fonts */
+    --font1: "Indie Flower", serif;
+    --font2: "Caprasimo", serif;
+    --font3: "Kanit", serif;
+  
+    /* Light Mode Colors */
+    --PRIMARY-C: #121212; 
+    --SECONDARY-C: #1a1a1a;
+    --TERTIARY-C: #2a2a2a;
+  
+    /* Gradient */
+    --BGC: linear-gradient(145deg, #ffffff, #f5f5f5); 
+    --BGC2: linear-gradient(145deg, #f5f5f5, #e8e8e8);    
+    --BGC3: linear-gradient(145deg, #e0e0e0, #d6d6d6);
+    --BGC-FADE: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.9),
+      rgba(245, 245, 245, 0.9)
+    ); 
+    --BGC-FADE2: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.7),
+      rgba(230, 230, 230, 0.7)
+    );
+  
+    /* General */
+    --BOX-SHADOW: 5px 0 10px rgba(50, 50, 50, 0.2); 
+    --BTN-BGC1: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+    --BTN-BGC2: linear-gradient(45deg, #e6e6e6, #fafafa);
+    --BTN-BGC3: linear-gradient(to bottom, #fefefe, #dcdcdc);
+    --BGC-HR: linear-gradient(to right, #f1f1f1, #b5b5b5, #e0e0e0);    
+  }
+  
+  /* || Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Dark Mode Colors */
+      --PRIMARY-C: #ffd700;
+      --SECONDARY-C: #b8860b; 
+      --TERTIARY-C: #8b7500; 
+  
+      /* Gradient */
+      --BGC: linear-gradient(145deg, #000000, #121212); 
+      --BGC2: linear-gradient(145deg, #0d0d0d, #1a1a1a); 
+      --BGC3: linear-gradient(145deg, #1f1f1f, #2a2a2a); 
+      --BGC-FADE: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.9),
+        rgba(18, 18, 18, 0.9)
+      ); 
+      --BGC-FADE2: linear-gradient(
+        145deg,
+        rgba(0, 0, 0, 0.7),
+        rgba(32, 32, 32, 0.7)
+      );
+  
+      /* General */
+      --BOX-SHADOW: 5px 0 10px rgba(255, 215, 0, 0.5); 
+      --BTN-BGC1: linear-gradient(to bottom right, #ffd700, #8b7500); 
+      --BTN-BGC2: linear-gradient(45deg, #b8860b, #1a1a1a); 
+      --BTN-BGC3: linear-gradient(to bottom, #ffd700, #4b4b4b); 
+      --BGC-HR: linear-gradient(to right, #ffd700, #b8860b, #8b7500);
+    }
+  }
+
+/* || General */
 html {
     font-size: 22px;
+    font-family: var(--font2);
 }
 
 body {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;        
     min-height: 100vh;
     max-width: 800px;
     margin: 0 auto;
-    padding: 1rem;
-    border-left: 1px solid ;
-    border-right: 1px solid ;   
-    background-color:#333;
-    color: whitesmoke;
+    background: var(--BGC);
+    color: var(--PRIMARY-C);
+    transition: all 0.5s ease-in-out;
 }
 
-a {
-    color: aliceblue;
+h1 {
+  font-family: var(--font2);
 }
 
-a:visited {
-    color: lightgray;
+h2 {
+  font-family: var(--font1);
 }
 
-a:hover, a:active {
-    color: #eee
+p {
+  font-family: var(--font3);
 }
 
 table, tr, th, td, caption {
-    border: 1px solid #eee;
-    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid var(--PRIMARY-C);
+    font-family: var(--font3);
+    box-shadow: var(--BOX-SHADOW);
+    background: var(--BGC2);
     border-collapse: collapse;
-    padding: 0.5rem;
+    padding: 0.75rem;
+}
+
+
+.footer {
+  font-family: var(--font1);
 }
